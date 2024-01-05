@@ -10,7 +10,6 @@ namespace Mini_project_API.Models
         public int PersonsInterestsIdFk { get; set; }
 
         public virtual Link LinkIdFkNavigation { get; set; } = null!;
-        //public virtual ICollection<Link> Links { get; set; }
         public virtual PersonsInterest PersonsInterestsIdFkNavigation { get; set; } = null!;
     }
 }
