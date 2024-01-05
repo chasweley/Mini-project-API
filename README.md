@@ -6,7 +6,7 @@ A simple web API with REST architecture where you can:
 - Store several links to each interest a specific person has. The link is then connected to both the person and that interest.
 
 Calls made to the API through Insomnia:
-1. `http://localhost:5108/persons`
+1. Get all persons in the system: `GET http://localhost:5108/persons`
    ```
    [
 	{
@@ -30,7 +30,7 @@ Calls made to the API through Insomnia:
 		"phoneNumber": "0708777777"
 	}
    ]
-2. `http://localhost:5108/persons/1/interests`
+2. Get all interests a specific person has: `GET http://localhost:5108/persons/1/interests`
    ```
    [
 	{
@@ -42,6 +42,28 @@ Calls made to the API through Insomnia:
 		"description": "Movies are a work of visual art that simulates experiences and otherwise communicates ideas, stories, perceptions, feelings, beauty, or atmosphere through the use of moving images. These images are generally accompanied by sound and, more rarely, other sensory stimulations."
 	}
    ]
+   ```
+3. Get all links a specific person has: `GET http://localhost:5108/persons/1/links`
+   ```
+   [
+	{
+		"link": "https://en.wikipedia.org/wiki/Ballet"
+	},
+	{
+		"link": "https://www.britannica.com/art/reggaeton"
+	},
+	{
+		"link": "https://www.imdb.com/"
+	}
+   ]
+   ```
+4. Connect a person to a new interest: `POST http://localhost:5108/persons/1/interests`
+   With the following body:
+   ```
+   {
+	"title": "Knitting",
+	"Description": "Knitting is a method for production of textile fabrics by interlacing yarn loops with loops of the same or other yarns. It is used to create many types of garments. Knitting may be done by hand or by machine."
+   }
    ```
 
 ER diagram for the database:
