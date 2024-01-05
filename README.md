@@ -110,8 +110,10 @@ Calls made to the API through Insomnia:
    ```
 
 ER diagram for the database:
+
 ![ER diagram API project](https://github.com/chasweley/Mini-project-API/assets/123236297/70dae799-bcb2-4afb-923d-408191a73b70)
 
 UML diagram for the API:
+
 ![UML diagram API](https://github.com/chasweley/Mini-project-API/assets/123236297/b1617ba6-dab6-448f-9f5e-f72f530440c8)
 
