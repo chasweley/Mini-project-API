@@ -87,7 +87,7 @@ Calls made to the API through Insomnia:
    With the following body:
    ```
    {
-	"link": "https://sheepandstitch.com/"
+	"linkToPage": "https://sheepandstitch.com/"
    }
    ```
    If we now again call: `GET http://localhost:5108/persons/1/links`
