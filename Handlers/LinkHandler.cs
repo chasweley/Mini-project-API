@@ -18,7 +18,7 @@ namespace Mini_project_API.Handlers
                 .Where(p => p.PersonsInterestsIdFkNavigation.PersonIdFk == personId)
                 .Select(l => new LinkViewModel
                 {
-                    Link = l.LinkIdFkNavigation.LinkToPage
+                    LinkToPage = l.LinkIdFkNavigation.LinkToPage
                 }).ToArray();
 
             if (result == null)

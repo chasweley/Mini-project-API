@@ -2,6 +2,6 @@
 {
     public class LinkViewModel
     {
-        public string Link { get; set; }
+        public string LinkToPage { get; set; }
     }
 }
