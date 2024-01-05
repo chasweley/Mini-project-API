@@ -65,6 +65,49 @@ Calls made to the API through Insomnia:
 	"Description": "Knitting is a method for production of textile fabrics by interlacing yarn loops with loops of the same or other yarns. It is used to create many types of garments. Knitting may be done by hand or by machine."
    }
    ```
+   If we now again call: `GET http://localhost:5108/persons/1/interests`
+   We get:
+   ```
+   [
+	{
+		"title": "Dance",
+		"description": "Dance is an art form, often classified as a sport, consisting of sequences of body movements with aesthetic and often symbolic value, either improvised or purposefully selected."
+	},
+	{
+		"title": "Movies",
+		"description": "Movies are a work of visual art that simulates experiences and otherwise communicates ideas, stories, perceptions, feelings, beauty, or atmosphere through the use of moving images. These images are generally accompanied by sound and, more rarely, other sensory stimulations."
+	},
+	{
+		"title": "Knitting",
+		"description": "Knitting is a method for production of textile fabrics by interlacing yarn loops with loops of the same or other yarns. It is used to create many types of garments. Knitting may be done by hand or by machine."
+	}
+   ]
+   ```
+5. Add new link to a specific person as well as a specific interest: `POST http://localhost:5108/persons/1/1004/links`
+   With the following body:
+   ```
+   {
+	"link": "https://sheepandstitch.com/"
+   }
+   ```
+   If we now again call: `GET http://localhost:5108/persons/1/links`
+   We get:
+   ```
+   [
+	{
+		"link": "https://en.wikipedia.org/wiki/Ballet"
+	},
+	{
+		"link": "https://www.britannica.com/art/reggaeton"
+	},
+	{
+		"link": "https://www.imdb.com/"
+	},
+	{
+		"link": "https://sheepandstitch.com/"
+	}
+   ]
+   ```
 
 ER diagram for the database:
 
