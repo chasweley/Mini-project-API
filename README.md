@@ -47,13 +47,13 @@ Calls made to the API through Insomnia:
    ```
    [
 	{
-		"link": "https://en.wikipedia.org/wiki/Ballet"
+		"linkToPage": "https://en.wikipedia.org/wiki/Ballet"
 	},
 	{
-		"link": "https://www.britannica.com/art/reggaeton"
+		"linkToPage": "https://www.britannica.com/art/reggaeton"
 	},
 	{
-		"link": "https://www.imdb.com/"
+		"linkToPage": "https://www.imdb.com/"
 	}
    ]
    ```
@@ -95,16 +95,16 @@ Calls made to the API through Insomnia:
    ```
    [
 	{
-		"link": "https://en.wikipedia.org/wiki/Ballet"
+		"linkToPage": "https://en.wikipedia.org/wiki/Ballet"
 	},
 	{
-		"link": "https://www.britannica.com/art/reggaeton"
+		"linkToPage": "https://www.britannica.com/art/reggaeton"
 	},
 	{
-		"link": "https://www.imdb.com/"
+		"linkToPage": "https://www.imdb.com/"
 	},
 	{
-		"link": "https://sheepandstitch.com/"
+		"linkToPage": "https://sheepandstitch.com/"
 	}
    ]
    ```
@@ -115,5 +115,6 @@ ER diagram for the database:
 
 UML diagram for the API:
 
-![UML diagram API](https://github.com/chasweley/Mini-project-API/assets/123236297/b1617ba6-dab6-448f-9f5e-f72f530440c8)
+![UML diagram API(1)](https://github.com/chasweley/Mini-project-API/assets/123236297/2e02d230-c2bd-4d78-8d3b-f924396ec50a)
+
 
