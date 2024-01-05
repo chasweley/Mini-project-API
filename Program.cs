@@ -24,7 +24,6 @@ namespace Mini_project_API
             app.MapPost("/persons/{personId}/{interestId}/links", LinkHandler.AddPersonInterestLink);
             app.MapPost("/persons/{personId}/interests", InterestHandler.AddNewPersonInterest);
 
-
             app.Run();
         }
     }

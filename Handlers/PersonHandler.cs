@@ -13,9 +13,9 @@ namespace Mini_project_API.Handlers
             PersonListViewModel[] result = context.Persons
                 .Select(p => new PersonListViewModel()
                 {
-                    Id = p.PersonId,
                     FirstName = p.FirstName,
-                    LastName = p.LastName
+                    LastName = p.LastName,
+                    PhoneNumber = p.PhoneNo
                 })
                 .ToArray();
             return Results.Json(result);

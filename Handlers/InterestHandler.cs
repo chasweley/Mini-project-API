@@ -16,7 +16,8 @@ namespace Mini_project_API.Handlers
                 .Where(p => p.PersonIdFk == personId)
                 .Select(p => new InterestViewModel()
                 {
-                    Title = p.InterestIdFkNavigation.Title
+                    Title = p.InterestIdFkNavigation.Title,
+                    Description = p.InterestIdFkNavigation.Description
                 })
                 .ToArray();
 

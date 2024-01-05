@@ -58,7 +58,7 @@ namespace Mini_project_API.Handlers
                 AddLinkToDatabase(context, linkToPage);
             }
 
-            int personInterestId = InterestHandler.FindPersonInterestId(context, personId, interestId);
+            int personInterestId = 1005;//InterestHandler.FindPersonInterestId(context, personId, interestId);
             int linkId = GetLinkId(context, linkToPage);
 
             if (!context.PersonsInterestsLinks.Any(p => p.PersonsInterestsIdFk.Equals(personInterestId) && p.LinkIdFk.Equals(linkId)))
