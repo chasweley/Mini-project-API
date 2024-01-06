@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Mini_project_API.Models
 {
+    //Class for table Persons in database
     public partial class Person
     {
         public Person()
@@ -15,6 +16,7 @@ namespace Mini_project_API.Models
         public string LastName { get; set; } = null!;
         public string? PhoneNo { get; set; }
 
+        //One to many connection
         public virtual ICollection<PersonsInterest> PersonsInterests { get; set; }
     }
 }
