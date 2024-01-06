@@ -69,6 +69,12 @@ namespace Mini_project_API.Handlers
         //Method to add/connect interest to specific person to database
         public static IResult AddNewPersonInterest(PersonInterestContext context, int personId, InterestDto interest)
         {
+            //If the request body is missing title and/or description return error message
+            if (string.IsNullOrEmpty(interest.Title) || string.IsNullOrEmpty(interest.Description))
+            {
+                return Results.BadRequest(new { Message = "Interests needs to have both title and description" });
+            }
+
             //If the link does not already exist in database in table Interests, first add it to database
             if (!context.Interests.Any(i => i.Title.Equals(interest.Title)))
             {

@@ -56,7 +56,13 @@ namespace Mini_project_API.Handlers
 
         //Method to add/connect link to specific person and specific interest to database
         public static IResult AddPersonInterestLink(PersonInterestContext context, int personId, int interestId, LinkDto linkToPage)
-        {          
+        {
+            //If the request body is missing linkToPage return error message
+            if (string.IsNullOrEmpty(linkToPage.LinkToPage))
+            {
+                return Results.BadRequest(new { Message = "Links needs to have a linkToPage" });
+            }
+
             //If the link does not already exist in database in table Links, first add it to database
             if (!context.Links.Any(l => l.LinkToPage.Equals(linkToPage.LinkToPage)))
             {
