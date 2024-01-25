@@ -3,6 +3,7 @@ using Mini_project_API.Data;
 using Mini_project_API.Models;
 using Mini_project_API.Models.DTO;
 using Mini_project_API.Models.ViewModels;
+using Mini_project_API.Helpers;
 using System.Net;
 
 namespace Mini_project_API.Handlers
@@ -33,39 +34,6 @@ namespace Mini_project_API.Handlers
             return Results.Json(result);
         }
 
-        //Method to find id for specific person's specific interest
-        public static int FindPersonInterestId(PersonInterestContext context, int personId, int interestId)
-        {
-            int personInterestId = context.PersonsInterests
-                .Where(p => p.PersonIdFk == personId && p.InterestIdFk == interestId)
-                .Select(pi => pi.PersonInterestId)
-                .SingleOrDefault();
-
-            return personInterestId;
-        }
-
-        //Method to add new interest to table Interests in database with help
-        //of a dto to not have to send id to database, which it creates itself
-        public static void AddInterestToDb(PersonInterestContext context, InterestDto interest) 
-        {
-            context.Interests.Add(new Interest()
-            {
-                Title = interest.Title,
-                Description = interest.Description
-            });
-            context.SaveChanges();
-        }
-
-        //Method to get the interestId from database
-        public static int GetInterestId(PersonInterestContext context, InterestDto interest)
-        {
-            int interestId = context.Interests
-                .Where(i => i.Title == interest.Title)
-                .Select(ii => ii.InterestId)
-                .SingleOrDefault();
-            return interestId;
-        }
-
         //Method to add/connect interest to specific person to database
         public static IResult AddNewPersonInterest(PersonInterestContext context, int personId, InterestDto interest)
         {
@@ -78,10 +46,10 @@ namespace Mini_project_API.Handlers
             //If the link does not already exist in database in table Interests, first add it to database
             if (!context.Interests.Any(i => i.Title.Equals(interest.Title)))
             {
-                AddInterestToDb(context, interest);
+                DbHelpers.AddInterestToDb(context, interest);
             }
 
-            int interestId = GetInterestId(context, interest);
+            int interestId = DbHelpers.GetInterestId(context, interest);
 
             //If-statment to check if the person already has that interest connected to them
             //before saving the connection to database

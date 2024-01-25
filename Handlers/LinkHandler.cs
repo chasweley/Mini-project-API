@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Mini_project_API.Data;
+using Mini_project_API.Helpers;
 using Mini_project_API.Models;
 using Mini_project_API.Models.DTO;
 using Mini_project_API.Models.ViewModels;
@@ -33,27 +34,6 @@ namespace Mini_project_API.Handlers
             return Results.Json(result);
         }
 
-        //Method to add new link to table Links in database with help
-        //of a dto to not have to send id to database, which it creates itself
-        public static void AddLinkToDatabase(PersonInterestContext context, LinkDto linkToPage)
-        { 
-            context.Links.Add(new Link()
-            {
-                LinkToPage = linkToPage.LinkToPage
-            });
-            context.SaveChanges();
-        }
-
-        //Method to get the linkId from database
-        public static int GetLinkId(PersonInterestContext context, LinkDto linkToPage)
-        {
-            var linkId = context.Links
-                .Where(l => l.LinkToPage == linkToPage.LinkToPage)
-                .Select(li => li.LinkId)
-                .SingleOrDefault();
-            return linkId;
-        }
-
         //Method to add/connect link to specific person and specific interest to database
         public static IResult AddPersonInterestLink(PersonInterestContext context, int personId, int interestId, LinkDto linkToPage)
         {
@@ -66,11 +46,11 @@ namespace Mini_project_API.Handlers
             //If the link does not already exist in database in table Links, first add it to database
             if (!context.Links.Any(l => l.LinkToPage.Equals(linkToPage.LinkToPage)))
             {
-                AddLinkToDatabase(context, linkToPage);
+                DbHelpers.AddLinkToDatabase(context, linkToPage);
             }
 
-            int personInterestId = InterestHandler.FindPersonInterestId(context, personId, interestId);
-            int linkId = GetLinkId(context, linkToPage);
+            int personInterestId = DbHelpers.FindPersonInterestId(context, personId, interestId);
+            int linkId = DbHelpers.GetLinkId(context, linkToPage);
 
             //If-statment to check if the person already has that link connected to them and the interest
             //before saving the connection to database
