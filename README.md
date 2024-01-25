@@ -1,4 +1,5 @@
 Mini project: API
+
 A simple web API with REST architecture where you can:
 - Store persons with basic information such as their firstname, lastname and phonenumber.
 - Store several interests that the persons have. Each interest has a title and a short description.
@@ -58,6 +59,7 @@ Calls made to the API through Insomnia:
    ]
    ```
 4. Connect a person to a new interest: `POST http://localhost:5108/persons/1/interests`
+
    With the following body:
    ```
    {
@@ -83,7 +85,8 @@ Calls made to the API through Insomnia:
 	}
    ]
    ```
-5. Add new link to a specific person as well as a specific interest: `POST http://localhost:5108/persons/1/1004/links`
+6. Add new link to a specific person as well as a specific interest: `POST http://localhost:5108/persons/1/1004/links`
+
    With the following body:
    ```
    {
@@ -109,7 +112,7 @@ Calls made to the API through Insomnia:
    ]
    ```
 
-ER diagram for the database:
+ER model for the database:
 
 ![ER diagram API project](https://github.com/chasweley/Mini-project-API/assets/123236297/70dae799-bcb2-4afb-923d-408191a73b70)
 
